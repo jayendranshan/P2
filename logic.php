@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		if($_POST["number_of_words"] < 1 || $_POST["number_of_words"] > 10)
 		{
-			$ValidateNoofWords = "Please enter value between 0 and 11";
+			$ValidateNoofWords = "Please enter value from 1 to 10";
 			return;
 		}
 		else

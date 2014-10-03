@@ -48,22 +48,19 @@ ini_set('display_errors', 1);
 				<label> Include a special character: </label>
 				<input type="radio" name="group2" value="Yes"> Yes
 				<input type="radio" name="group2" value="No" checked> No
-				<br>
-				<br>
+				<br><br>
 				<label> Change case?: </label>
 				<input type="radio" name="group3" value="UpperCase"> UpperCase
 				<input type="radio" name="group3" value="LowerCase"> LowerCase
-				<br>
-				<br>
+				<br><br>
 				<label> Include a word separator: </label>
 				<input type="radio" name="group4" value="Space"> Space
 				<input type="radio" name="group4" value="Hyphen"> Hyphen
-				<br>
-				<br>
+				<br><br>
 				<input type="submit" value="Generate the password" class="btn btn-primary btn-lg btn-block">
-				<br>
-				<br>
-				<label>Generated Password: </label> <label style="color:red"><?php echo $SelectedFinalWords;?></label>
+				<br><br>
+				<label>Generated Password: </label> <br>
+				<label class="PwdFont"> <?php echo $SelectedFinalWords;?></label>
 			</div>
 		</form>
 	</div>
