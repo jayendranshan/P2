@@ -3,11 +3,13 @@
 $CountofWords= "";
 $IncludeNumbers = false;
 $IncludeSpecialCharacters = false;
-$SelectedWords = "";
+$SelectedWords = array();
 $SelectedFinalWords="";
 $ValidateNoofWords = "";
 $SpecialCharacters = array('!','@','#','$','%','*');
 $randomSpecialCharacter = 1;
+$ChangeCase="";
+$Separator = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
@@ -45,34 +47,89 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			$IncludeSpecialCharacters = true;
 		}		
 	}
+
+	if (isset($_POST["group3"])) 
+	{
+		if($_POST["group3"] == "UpperCase")
+		{
+			$ChangeCase = "UC";
+
+		}
+		else if($_POST["group3"] == "LowerCase")	
+		{
+			$ChangeCase = "LC";
+		}
+	}
+	if (isset($_POST["group4"])) 
+	{
+		if($_POST["group4"] == "Space")
+		{
+			$Separator = "Space";
+
+		}
+		else if($_POST["group4"] == "Hyphen")	
+		{
+			$Separator = "Hyphen";
+		}
+	}
 }
 
 if($wordlist = file('Wordlist.txt'))
 {
 	//echo "Total number of word available is:" . count($wordlist) ."\n";
 
+	//$arrayex = array('one','two','three','four','five','six','seven','eight','nine');
 	for($i=0;$i<$CountofWords;$i++)
 	{
 		$randomarrayitem = rand(0,140);
 
-		//echo "Random nos are " . $randomarrayitem ."\n";
+		//$SelectedWords = $SelectedWords.$wordlist[$randomarrayitem];
+		if($Separator == "Space")
+		{
+			array_push($SelectedWords, $wordlist[$randomarrayitem]);
+			$SelectedFinalWords = implode("", $SelectedWords);
+		}
+		else if($Separator == "Hyphen")
+		{
+			array_push($SelectedWords, trim($wordlist[$randomarrayitem]));
 
-		//echo "words are:". $wordlist[$randomarrayitem] ."\n";
-		$SelectedWords = $SelectedWords.$wordlist[$randomarrayitem];
+			$SelectedFinalWords = implode("-", $SelectedWords);
+		}
+		else
+		{
+			array_push($SelectedWords, trim($wordlist[$randomarrayitem]));
 
-		$SelectedFinalWords = str_replace(" ","-", $SelectedWords);
+			$SelectedFinalWords = implode("", $SelectedWords);
+		}
+
+		if($ChangeCase == "UC")
+		{
+			$SelectedFinalWords = strtoupper ($SelectedFinalWords);
+		}
+
+		if($ChangeCase == "LC")
+		{
+			$SelectedFinalWords = strtolower ($SelectedFinalWords);
+		}
 	}	
 
 	if($IncludeNumbers)
 	{
 		$SelectedFinalWords = $SelectedFinalWords . rand(0,9);
+		//array_push($SelectedWords, rand(0,9));
 	}
 
 	if($IncludeSpecialCharacters)
 	{
-		$randomSpecialCharacter = rand(1,6);
+		$randomSpecialCharacter = rand(0,5);
 		$SelectedFinalWords = $SelectedFinalWords . $SpecialCharacters[$randomSpecialCharacter];
+		//array_push($SelectedWords, $SpecialCharacters[$randomSpecialCharacter]);
 	}
+
+	//print_r($SelectedWords);
+
+	//$SelectedFinalWords = implode("", $SelectedWords);
+
 }
 
 ?>
