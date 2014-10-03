@@ -11,9 +11,9 @@ https://github.com/jayendranshan/P2
 ## Description
 This project generates password with random words. This web page has option to 
 	1) How many words the password should have.
-	2) whether to include numbers
-	3) whether to include special characters
-	4) Change case of passwords
-	5) Include a space or hyphen betwen words
+	2) whether to include number
+	3) whether to include special character
+	4) Change case of password
+	5) Include a space or hyphen between words
 
 This project is created using bootstrap framework.
