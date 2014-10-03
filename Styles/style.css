@@ -1,4 +1,4 @@
-#content{
+#divContent{
 	margin:50px 0 0 170px;
 	width:800px;
 	padding:20px 50px 40px;
@@ -9,14 +9,11 @@
 	box-shadow:0 0 20px 3px rgba(0,0,0,.6)
 }
 
-hr { 
-    display: block;
-} 
 .backColor{
 	background-color: #D8D8D8;
 }
 
-#dvMessage {
+#divMessage {
 	margin:0 auto;
 	width:800px;
 	padding:0 50px 0 25px;

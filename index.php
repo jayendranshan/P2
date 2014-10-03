@@ -1,6 +1,6 @@
 
 <?php
-error_reporting(E_ALL);
+error_reporting(0);
 ini_set('display_errors', 1);
 ?>
 
@@ -35,7 +35,7 @@ ini_set('display_errors', 1);
 	<br>
 	<div class="container">
 
-	<div id="content">		
+	<div id="divContent">		
 		<form method="POST" action="index.php">
 			<div>
 				<label>Total No. of words: </label>
@@ -63,12 +63,12 @@ ini_set('display_errors', 1);
 				<input type="submit" value="Generate the password" class="btn btn-primary btn-lg btn-block">
 				<br>
 				<br>
-				<label>Password: </label> <label style="color:red"><?php echo $SelectedFinalWords;?></label>
+				<label>Generated Password: </label> <label style="color:red"><?php echo $SelectedFinalWords;?></label>
 			</div>
 		</form>
 	</div>
 	<br>
-	<div id="dvMessage">
+	<div id="divMessage">
 		<br>
 		<p><b><u>Password was generated using xkcd model and please see below for more information on xkcd model.</u></b></p>
 		<br>
