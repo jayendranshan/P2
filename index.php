@@ -25,33 +25,45 @@ ini_set('display_errors', 1);
 	?>
 </head>
 <body class="backColor">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+		        <font size="6" color="white">Password Generator</font>
+			</div>
+		</div>
+	</div>
 	<br>
 	<div class="container">
 
-	<div id="content">
-
-		<h1>Password Generator using xkcd model</h1>
-		<hr>
-		
+	<div id="content">		
 		<form method="POST" action="index.php">
 			<div>
-				<label>Total No. of words</label>
-				<input type='text' name='number_of_words' id='number_of_words' value=''> &nbsp;<span><?php echo $ValidateNoofWords;?></span>
+				<label>Total No. of words: </label>
+				<input type='text'  name='number_of_words' id='number_of_words' value=''> &nbsp;<span><?php echo $ValidateNoofWords;?></span>
 				<br><br>
-				<label> Include a number in the password</label>
+				<label> Include a number: </label>
 				<input type="radio" name="group1" value="Yes"> Yes
 				<input type="radio" name="group1" value="No" checked> No
 				<br><br>
-				<label> Include a special character in the password</label>
+				<label> Include a special character: </label>
 				<input type="radio" name="group2" value="Yes"> Yes
 				<input type="radio" name="group2" value="No" checked> No
 				<br>
 				<br>
-
+				<label> Change case?: </label>
+				<input type="radio" name="group3" value="UpperCase"> UpperCase
+				<input type="radio" name="group3" value="LowerCase"> LowerCase
+				<br>
+				<br>
+				<label> Include a word separator: </label>
+				<input type="radio" name="group4" value="Space"> Space
+				<input type="radio" name="group4" value="Hyphen"> Hyphen
+				<br>
+				<br>
 				<input type="submit" value="Generate the password" class="btn btn-primary btn-lg btn-block">
-					<br>
-					<br>
-				<label>Password: </label> <label><?php echo $SelectedFinalWords;?></label>
+				<br>
+				<br>
+				<label>Password: </label> <label style="color:red"><?php echo $SelectedFinalWords;?></label>
 			</div>
 		</form>
 	</div>
