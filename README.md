@@ -1,3 +1,17 @@
-Readme file for Project2.
+# Dynamic web application Project 2 Readme file.
 
-09/15/2014
+# Password generator using xkcd model.
+
+## Live URL
+<http://P2.jayendran.me>
+
+## Git hub URL:
+https://github.com/jayendranshan/P2
+
+## Description
+This project generates password with random words. This web page has option to 
+	1) How many words the password should have.
+	2) whether to include numbers
+	3) whether to include special characters
+
+This project is created using bootstrap framework.
