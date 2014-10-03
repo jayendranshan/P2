@@ -1,0 +1,39 @@
+#content{
+	margin:0 auto;
+	width:800px;
+	padding:0 50px 40px;
+	background:#CEECF5;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;-ms-border-radius:10px;
+	-o-border-radius:10px;border-radius:10px;
+	box-shadow:0 0 20px 3px rgba(0,0,0,.6)
+}
+
+hr { 
+    display: block;
+} 
+.backColor{
+	background-color: #D8D8D8;
+}
+
+#dvMessage {
+	margin:0 auto;
+	width:800px;
+	padding:0 50px 40px;
+	background:#CEECF5;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;-ms-border-radius:10px;
+	-o-border-radius:10px;border-radius:10px;
+	box-shadow:0 0 20px 3px rgba(0,0,0,.6)
+}
+
+a{
+text-align: center;
+}
+
+span{
+	color: red;
+}
+
+
+

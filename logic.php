@@ -3,12 +3,17 @@
 $CountofWords= "";
 $IncludeNumbers = false;
 $IncludeSpecialCharacters = false;
+$SelectedWords = "";
+$SelectedFinalWords="";
+$ValidateNoofWords = "";
+$SpecialCharacters = array('!','@','#','$','%','*');
+$randomSpecialCharacter = 1;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
 	if (isset($_POST["number_of_words"])) 
 	{
-		if($_POST["number_of_words"] < 1 && $_POST["number_of_words"] > 10)
+		if($_POST["number_of_words"] < 1 || $_POST["number_of_words"] > 10)
 		{
 			$ValidateNoofWords = "Please enter value between 0 and 11";
 			return;
@@ -17,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		{
 			$CountofWords = $_POST["number_of_words"];
 
-			echo "Number of words to include is:" . $CountofWords;
+			//echo "Number of words to include is:" . $CountofWords;
 		}    
 	}
 	else
@@ -30,12 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		if($_POST["group1"] == 'Yes')
 		{
 			$IncludeNumbers = true;
-		}
-		if($IncludeNumbers)
-		{
-			echo "Should numbers be included:" . $IncludeNumbers;
-		}
-		
+		}		
 	}
 
 	if (isset($_POST["group2"])) 
@@ -43,39 +43,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		if($_POST["group2"] == "Yes")
 		{
 			$IncludeSpecialCharacters = true;
-		}
-		if($IncludeSpecialCharacters)
-		{
-			echo "Should special characters be included:" . $IncludeSpecialCharacters;
-		}
-
-		
+		}		
 	}
 }
 
 if($wordlist = file('Wordlist.txt'))
 {
-	echo "Total number of word available is:" . count($wordlist) ."\n";
-	$SelectedWords = "";
+	//echo "Total number of word available is:" . count($wordlist) ."\n";
 
 	for($i=0;$i<$CountofWords;$i++)
 	{
-		$randomarrayitem = rand(0,10000);
+		$randomarrayitem = rand(0,140);
 
-		echo "Random nos are " . $randomarrayitem ."\n";
+		//echo "Random nos are " . $randomarrayitem ."\n";
 
-		echo "words are:". $wordlist[$randomarrayitem] ."\n";
+		//echo "words are:". $wordlist[$randomarrayitem] ."\n";
 		$SelectedWords = $SelectedWords.$wordlist[$randomarrayitem];
+
+		$SelectedFinalWords = str_replace(" ","-", $SelectedWords);
 	}	
 
 	if($IncludeNumbers)
 	{
-		$SelectedWords = $SelectedWords . rand(0,9);
+		$SelectedFinalWords = $SelectedFinalWords . rand(0,9);
 	}
 
 	if($IncludeSpecialCharacters)
 	{
-		$SelectedWords = $SelectedWords . "$";
+		$randomSpecialCharacter = rand(1,6);
+		$SelectedFinalWords = $SelectedFinalWords . $SpecialCharacters[$randomSpecialCharacter];
 	}
 }
 
